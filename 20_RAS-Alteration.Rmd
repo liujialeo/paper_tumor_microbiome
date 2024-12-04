@@ -1,16 +1,4 @@
 ---
-title: "FigureYa132alteration"
-author: "小丫画图出品"
-date: "2019-9-22"
-output: html_document
----
-欢迎关注“小丫画图”公众号，同名知识星球等你加入
-
-小丫微信: epigenomics  E-mail: figureya@126.com
-
-作者：Hazard
-
-小丫编辑校验
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -349,13 +337,7 @@ ggsave(filename = "RAS_alteration.pdf",
        height = 10)
 ```
 
-## 补充说明
 
-1. 数值跟原文对不上。我反复看过原文，文章提供数据是对应fig3（我自己统计，与图上的数值也对应不上），最有可能是作者进一步对突变做了某些过滤或筛选。也反复看过方法部分的描述，没有明确的文字描述来帮助完全复现，所以经过一番努力后我放弃了；
-
-2. 横坐标的顺序可以根据需要人工设定，这里尽量与文中保持一致；
-
-3. 文中没有提及纵坐标基因排序的规则，根据自己的需要人为指定即可。
 
 ```{r}
 sessionInfo()
