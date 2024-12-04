@@ -1,51 +1,3 @@
----
-title: "FigureYa132alteration"
-author: "小丫画图出品"
-date: "2019-9-22"
-output: html_document
----
-欢迎关注“小丫画图”公众号，同名知识星球等你加入
-
-小丫微信: epigenomics  E-mail: figureya@126.com
-
-作者：Hazard
-
-小丫编辑校验
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## 需求描述
-
-复现文章里的扫雷图。
-
-![](example.png)
-
-出自<https://www.cell.com/cell/fulltext/S0092-8674(18)30359-3>
-
-Figure 4. (B) Detailed heatmap of alteration frequencies in members of the RTK-RAS pathway. Only known or likely oncogenic alterations in each gene are considered, as described in STAR Methods. The individual gene alteration frequencies may add up to more than the total for each tumor type, as some tumor samples may have multiple alterations. Color side bars show the fraction of samples affected by each type of somatic alteration (or a combination of them) for each pathway gene. Top color bars show the proportion of different types of alterations for each cancer subtype.
-
-**图的解析**
-
-- 横坐标按器官排列，列出了TCGA的33种癌症类型。
-- 纵坐标列出作者重点关注的RTK-RAS pathway里的重要基因，其中红色为原癌基因，蓝色为抑癌基因。
-- 顶部和右侧分别对应每种癌症（纵坐标）和每个基因（横坐标）里各种alteration的frequency
-
-例文作者选取了10个重要pathway，并总结出参与这些pathway的基因共187个，保存在NIHMS957693-supplement-7.xlsx文件。提取出这些基因在TCGA 33种癌症（NIHMS957693-supplement-5.xlsx）中的alteration，总结成alteration层面、gene层面和pathway层面，保存在NIHMS957693-supplement-8.xlsx文件。
-
-## 应用场景
-
-可以从作者总结的参与10个重要通路的187个基因中提取出感兴趣的基因的alteration，画你感兴趣的癌症类型里他们的突变频率图。
-
-还可以把这个思路应用到其他基因或自己收集的突变数据上，需要先把突变数据整理成NIHMS957693-supplement-*.xlsx的格式。
-
-例文多个Figure都用了这种展示方式。参考例文这些图的用法，套用在自己的数据上：
-
-- 我们复现的Figure 4，RTK-RAS pathway
-- Figure 5，其余9个pathway中突变频率最高的基因
-- Figure S2和S3，对应Figure 5，9个pathway中所有的基因
-- Figure 7，跟治疗和药物联系起来
 
 ## 环境设置
 
@@ -349,13 +301,7 @@ ggsave(filename = "TGF_alteration.pdf",
        height = 10)
 ```
 
-## 补充说明
 
-1. 数值跟原文对不上。我反复看过原文，文章提供数据是对应fig3（我自己统计，与图上的数值也对应不上），最有可能是作者进一步对突变做了某些过滤或筛选。也反复看过方法部分的描述，没有明确的文字描述来帮助完全复现，所以经过一番努力后我放弃了；
-
-2. 横坐标的顺序可以根据需要人工设定，这里尽量与文中保持一致；
-
-3. 文中没有提及纵坐标基因排序的规则，根据自己的需要人为指定即可。
 
 ```{r}
 sessionInfo()
